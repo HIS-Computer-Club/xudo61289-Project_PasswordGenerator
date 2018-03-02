@@ -1,11 +1,11 @@
 #wordNumber {
-	margin-right: 1px;
+  margin-right: 1px;
 }
 
 #invalid {
-	display: none;
+  display: none;
 }
 
 #generatedPassword {
-	word-wrap: break-word;
+  word-wrap: break-word;
 }
