@@ -4,8 +4,11 @@ $(() => {
 			$("#generate").click();
 		}
 	});
+
+
 	$("#generate").click(() => {
 		let wordNumber = parseInt($("#wordNumber").val());
+
 		if (isNaN(wordNumber) || wordNumber < 1) {
 			$("#wordNumber").addClass("is-invalid");
 			$("#invalid").show();
