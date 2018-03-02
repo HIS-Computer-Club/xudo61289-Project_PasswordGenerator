@@ -14,15 +14,15 @@ $(() => {
     } else {
       $("#wordNumber").removeClass("is-invalid");
       $("#invalid").hide();
-      let password = "";
+      let password = [];
       for (let i = 0; i < wordNumber; i++) {
-        password += words[Math.floor(words.length * Math.random())];
+        password.push(words[Math.floor(words.length * Math.random())]);
       }
       let combinations = Math.pow(words.length, wordNumber);
       let billionAttemptsYears = parseFloat((combinations / 6.3072E16).toPrecision(2)) > 100000 ? (combinations / 6.3072E16).toPrecision(2) : parseFloat((combinations / 6.3072E16).toPrecision(2));
       let millionAttemptsYears = parseFloat((combinations / 6.3072E13).toPrecision(2)) > 100000 ? (combinations / 6.3072E13).toPrecision(2) : parseFloat((combinations / 6.3072E13).toPrecision(2));
       let thousandAttemptsYears = parseFloat((combinations / 6.3072E10).toPrecision(2)) > 100000 ? (combinations / 6.3072E10).toPrecision(2) : parseFloat((combinations / 6.3072E10).toPrecision(2));
-      $("#generatedPassword").html(password);
+      $("#generatedPassword").html(password.join(" "));
       if (combinations >= Math.pow(2, 60)) {
         $("#generatedPassword").addClass("text-success");
         $("#generatedPassword").removeClass("text-warning");
