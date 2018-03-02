@@ -2,48 +2,49 @@
 <html>
 
 <head>
-  <meta charset="utf-8">
-  <title>Password Generator</title>
-  <link rel="stylesheet" href="bootstrap/css/bootstrap.css" />
-  <link rel="stylesheet" href="style.css" />
+	<meta charset="utf-8">
+	<title>Password Generator</title>
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.css" />
+	<link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-  <div class="container-fluid">
-    <h2>Password Generator</h2>
-    <hr />
-    <div class="row">
-      <div class="col-sm-6">
-        <p>The number of words determine how many random numbers are concatenated together to form the password. This site uses a slightly modified version of the dictionary created by Github user <a href="https://github.com/first20hours/">@first20hours</a>, which contains 9400 words.</p>
-        <div class="input-group">
-          <div class="input-group-prepend">
-            <span class="input-group-text">Number of words</span>
-          </div>
-          <input type="number" class="form-control" id="wordNumber" min="1" />
-          <div class="input-group-append">
-            <button class="btn btn-success" id="generate" type="button">Generate!</button>
-          </div>
-        </div>
-        <div class="text-danger" id="invalid">
-          The number of words must be greater than or equal to 1.
-        </div>
-        <br />
-        <p id="generatedPassword"></p>
-        <p id="estimatedYears"></p>
-      </div>
-      <div class="col-sm-6">
-        <figure class="figure">
-          <img src="xkcd.png" class="img-fluid" alt="xkcd: Password Strength" />
-          <figcaption class="figure-caption">From <a href="https://www.xkcd.com/936/">https://www.xkcd.com/936/</a></figcaption>
-        </figure>
-      </div>
-    </div>
-    <hr />
-    <p>Created by NickTheTurtle</p>
-  </div>
-  <script src="words.js"></script>
-  <script src="jquery.js"></script>
-  <script src="script.js"></script>
+	<div class="container-fluid">
+		<h2>Password Generator</h2>
+		<hr />
+		<div class="row">
+			<div class="col-sm-6">
+				<p>The number of words determine how many random numbers are concatenated together to form the password. This site uses a slightly modified version of the dictionary created by Github user <a href="https://github.com/first20hours/">@first20hours</a>,
+					which contains 9400 words.</p>
+				<div class="input-group">
+					<div class="input-group-prepend">
+						<span class="input-group-text">Number of words</span>
+					</div>
+					<input type="number" class="form-control" id="wordNumber" min="1" />
+					<div class="input-group-append">
+						<button class="btn btn-success" id="generate" type="button">Generate!</button>
+					</div>
+				</div>
+				<div class="text-danger" id="invalid">
+					The number of words must be greater than or equal to 1.
+				</div>
+				<br />
+				<p id="generatedPassword"></p>
+				<p id="estimatedYears"></p>
+			</div>
+			<div class="col-sm-6">
+				<figure class="figure">
+					<img src="xkcd.png" class="img-fluid" alt="xkcd: Password Strength" />
+					<figcaption class="figure-caption">From <a href="https://www.xkcd.com/936/">https://www.xkcd.com/936/</a></figcaption>
+				</figure>
+			</div>
+		</div>
+		<hr />
+		<p>Created by NickTheTurtle</p>
+	</div>
+	<script src="words.js"></script>
+	<script src="jquery.js"></script>
+	<script src="script.js"></script>
 </body>
 
 </html>
