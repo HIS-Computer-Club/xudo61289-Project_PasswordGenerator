@@ -1,5 +1,2 @@
 # PasswordGenerator
 PasswordGenerator
-
-
-By NickTheTurtle
