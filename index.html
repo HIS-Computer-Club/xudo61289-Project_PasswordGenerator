@@ -25,9 +25,9 @@
           which contains 9400 words.</p>
         <div class="input-group">
           <div class="input-group-prepend">
-            <span class="input-group-text">Number of words</span>
+            <span class="input-group-text" id="wordNumberLabel">Number of words</span>
           </div>
-          <input type="number" class="form-control" id="wordNumber" min="1" />
+          <input type="number" class="form-control" id="wordNumber" min="1" aria-labelledby="wordNumberLabel" />
           <div class="input-group-append">
             <button class="btn btn-success" id="generate" type="button">Generate!</button>
           </div>
