@@ -45,12 +45,12 @@ $(() => {
         $("#generatedPassword").removeClass("text-warning");
         $("#generatedPassword").removeClass("text-danger");
         $("#estimatedYears").html(`
-          <p>Overkill. On average, this password will take…</p>
+          <p>Overkill. On average, this password will be cracked after…</p>
           <ul>
-            <li>${trillionAttempts} to crack with a trillion attempts per second.</li>
-            <li>${billionAttempts} to crack with a billion attempts per second.</li>
-            <li>${millionAttempts} to crack with a million attempts per second.</li>
-            <li>${thousandAttempts} to crack with a thousand attempts per second.</li>
+            <li>${trillionAttempts} with a trillion attempts per second.</li>
+            <li>${billionAttempts} with a billion attempts per second.</li>
+            <li>${millionAttempts} with a million attempts per second.</li>
+            <li>${thousandAttempts} with a thousand attempts per second.</li>
           </ul>
           `);
       } else if (combinations >= Math.pow(2, 60)) {
@@ -58,12 +58,12 @@ $(() => {
         $("#generatedPassword").removeClass("text-warning");
         $("#generatedPassword").removeClass("text-danger");
         $("#estimatedYears").html(`
-          <p>Secure. On average, this password will take…</p>
+          <p>Secure. On average, this password will be cracked after…</p>
           <ul>
-            <li>${trillionAttempts} to crack with a trillion attempts per second.</li>
-            <li>${billionAttempts} to crack with a billion attempts per second.</li>
-            <li>${millionAttempts} to crack with a million attempts per second.</li>
-            <li>${thousandAttempts} to crack with a thousand attempts per second.</li>
+            <li>${trillionAttempts} with a trillion attempts per second.</li>
+            <li>${billionAttempts} with a billion attempts per second.</li>
+            <li>${millionAttempts} with a million attempts per second.</li>
+            <li>${thousandAttempts} with a thousand attempts per second.</li>
           </ul>
         `);
       } else if (combinations >= Math.pow(2, 40)) {
@@ -71,12 +71,12 @@ $(() => {
         $("#generatedPassword").addClass("text-warning");
         $("#generatedPassword").removeClass("text-danger");
         $("#estimatedYears").html(`
-          <p>Good. On average, this password will take…</p>
+          <p>Good. On average, this password will be cracked after…</p>
           <ul>
-            <li>${trillionAttempts} to crack with a trillion attempts per second.</li>
-            <li>${billionAttempts} to crack with a billion attempts per second.</li>
-            <li>${millionAttempts} to crack with a million attempts per second.</li>
-            <li>${thousandAttempts} to crack with a thousand attempts per second.</li>
+            <li>${trillionAttempts} with a trillion attempts per second.</li>
+            <li>${billionAttempts} with a billion attempts per second.</li>
+            <li>${millionAttempts} with a million attempts per second.</li>
+            <li>${thousandAttempts} with a thousand attempts per second.</li>
           </ul>
         `);
       } else {
@@ -84,12 +84,12 @@ $(() => {
         $("#generatedPassword").removeClass("text-warning");
         $("#generatedPassword").addClass("text-danger");
         $("#estimatedYears").html(`
-          <p>Poor. On average, this password will take…</p>
+          <p>Poor. On average, this password will be cracked after…</p>
           <ul>
-            <li>${trillionAttempts} to crack with a trillion attempts per second.</li>
-            <li>${billionAttempts} to crack with a billion attempts per second.</li>
-            <li>${millionAttempts} to crack with a million attempts per second.</li>
-            <li>${thousandAttempts} to crack with a thousand attempts per second.</li>
+            <li>${trillionAttempts} with a trillion attempts per second.</li>
+            <li>${billionAttempts} with a billion attempts per second.</li>
+            <li>${millionAttempts} with a million attempts per second.</li>
+            <li>${thousandAttempts} with a thousand attempts per second.</li>
           </ul>
         `);
       }
