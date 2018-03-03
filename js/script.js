@@ -23,6 +23,7 @@ $(() => {
         password.push(words[Math.floor(words.length * Math.random())]);
       }
       let combinations = Math.pow(words.length, wordNumber);
+      let trillionAttempts = displayTime(combinations / 2e+12);
       let billionAttempts = displayTime(combinations / 2e+9);
       let millionAttempts = displayTime(combinations / 2e+6);
       let thousandAttempts = displayTime(combinations / 2000);
@@ -33,6 +34,7 @@ $(() => {
         $("#generatedPassword").removeClass("text-danger");
         $("#estimatedYears").html(`Overkill.
           <ul>
+            <li>Assuming a trillion attempts per second and knowledge of the generating method, your password will take ${trillionAttempts} to crack.</li>
             <li>Assuming a billion attempts per second and knowledge of the generating method, your password will take ${billionAttempts} to crack.</li>
             <li>Assuming a million attempts per second and knowledge of the generating method, your password will take ${millionAttempts} to crack.</li>
             <li>Assuming a thousand attempts per second and knowledge of the generating method, your password will take ${thousandAttempts} to crack.</li>
@@ -44,6 +46,7 @@ $(() => {
         $("#generatedPassword").removeClass("text-danger");
         $("#estimatedYears").html(`Strong.
           <ul>
+            <li>Assuming a trillion attempts per second and knowledge of the generating method, your password will take ${trillionAttempts} to crack.</li>
             <li>Assuming a billion attempts per second and knowledge of the generating method, your password will take ${billionAttempts} to crack.</li>
             <li>Assuming a million attempts per second and knowledge of the generating method, your password will take ${millionAttempts} to crack.</li>
             <li>Assuming a thousand attempts per second and knowledge of the generating method, your password will take ${thousandAttempts} to crack.</li>
@@ -55,6 +58,7 @@ $(() => {
         $("#generatedPassword").removeClass("text-danger");
         $("#estimatedYears").html(`Reasonable.
           <ul>
+            <li>Assuming a trillion attempts per second and knowledge of the generating method, your password will take ${trillionAttempts} to crack.</li>
             <li>Assuming a billion attempts per second and knowledge of the generating method, your password will take ${billionAttempts} to crack.</li>
             <li>Assuming a million attempts per second and knowledge of the generating method, your password will take ${millionAttempts} to crack.</li>
             <li>Assuming a thousand attempts per second and knowledge of the generating method, your password will take ${thousandAttempts} to crack.</li>
@@ -66,6 +70,7 @@ $(() => {
         $("#generatedPassword").addClass("text-danger");
         $("#estimatedYears").html(`Weak.
           <ul>
+            <li>Assuming a trillion attempts per second and knowledge of the generating method, your password will take ${trillionAttempts} to crack.</li>
             <li>Assuming a billion attempts per second and knowledge of the generating method, your password will take ${billionAttempts} to crack.</li>
             <li>Assuming a million attempts per second and knowledge of the generating method, your password will take ${millionAttempts} to crack.</li>
             <li>Assuming a thousand attempts per second and knowledge of the generating method, your password will take ${thousandAttempts} to crack.</li>
