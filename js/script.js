@@ -1,5 +1,5 @@
 $(() => {
-  $("#dictionaryWords").html(words.length);
+  $("#dictionaryWords").html(` and contains ${words.length} words`);
 
   $("#wordNumber").keyup((e) => {
     if (e.keyCode === 13) {
