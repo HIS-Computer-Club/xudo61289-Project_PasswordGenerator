@@ -1,10 +1,11 @@
 $(() => {
+  $("#dictionaryWords").html(words.length);
+
   $("#wordNumber").keyup((e) => {
     if (e.keyCode === 13) {
       $("#generate").click();
     }
   });
-
 
   $("#generate").click(() => {
     let wordNumber = parseInt($("#wordNumber").val());
