@@ -38,6 +38,10 @@
         </div>
         <br />
         <div class="custom-control custom-checkbox">
+          <input type="checkbox" class="custom-control-input" id="useUncommon" checked />
+          <label class="custom-control-label" for="useUncommon">Include less commonly used words</label>
+        </div>
+        <div class="custom-control custom-checkbox">
           <input type="checkbox" class="custom-control-input" id="useNames" checked />
           <label class="custom-control-label" for="useNames">Include proper names in dictionary</label>
         </div>
@@ -45,7 +49,7 @@
           The number of words must be greater than or equal to 1.
         </div>
         <br />
-        <p class="p-3" id="generatedPassword"></p>
+        <div class="alert" id="generatedPassword" role="alert"></div>
         <p id="estimatedYears"></p>
       </div>
       <div class="col-sm-6">

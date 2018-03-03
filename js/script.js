@@ -2,11 +2,36 @@ $(() => {
   let dictionary = words.concat(names);
   $("#dictionaryWords").html(`Containing ${dictionary.length} words, t`);
 
-  $("#useNames").change(function() {
+  $("#useUncommon").change(function() {
     if (this.checked) {
-      dictionary = words.concat(names);
+      if ($("#useNames").prop("checked")) {
+        dictionary = words.concat(names);
+      } else {
+        dictionary = words;
+      }
     } else {
-      dictionary = words;
+      if ($("#useNames").prop("checked")) {
+        dictionary = words.slice(0, Math.round(words.length * 0.75)).concat(names);
+      } else {
+        dictionary = words.slice(0, Math.round(words.length * 0.75));
+      }
+    }
+    $("#dictionaryWords").html(`Containing ${dictionary.length} words, t`);
+  });
+
+  $("#useNames").change(function() {
+    if ($("#useUncommon").prop("checked")) {
+      if (this.checked) {
+        dictionary = words.concat(names);
+      } else {
+        dictionary = words;
+      }
+    } else {
+      if (this.checked) {
+        dictionary = words.slice(0, Math.round(words.length * 0.75)).concat(names);
+      } else {
+        dictionary = words.slice(0, Math.round(words.length * 0.75));
+      }
     }
     $("#dictionaryWords").html(`Containing ${dictionary.length} words, t`);
   });
@@ -41,9 +66,9 @@ $(() => {
       let thousandAttempts = displayTime(combinations / 2000);
       $("#generatedPassword").html(password.join(""));
       if (combinations >= Math.pow(2, 100)) {
-        $("#generatedPassword").addClass("text-success");
-        $("#generatedPassword").removeClass("text-warning");
-        $("#generatedPassword").removeClass("text-danger");
+        $("#generatedPassword").addClass("alert-success");
+        $("#generatedPassword").removeClass("alert-warning");
+        $("#generatedPassword").removeClass("alert-danger");
         $("#estimatedYears").html(`
           <p>Overkill. On average, this password will be cracked after…</p>
           <ul>
@@ -54,9 +79,9 @@ $(() => {
           </ul>
           `);
       } else if (combinations >= Math.pow(2, 60)) {
-        $("#generatedPassword").addClass("text-success");
-        $("#generatedPassword").removeClass("text-warning");
-        $("#generatedPassword").removeClass("text-danger");
+        $("#generatedPassword").addClass("alert-success");
+        $("#generatedPassword").removeClass("alert-warning");
+        $("#generatedPassword").removeClass("alert-danger");
         $("#estimatedYears").html(`
           <p>Secure. On average, this password will be cracked after…</p>
           <ul>
@@ -67,9 +92,9 @@ $(() => {
           </ul>
         `);
       } else if (combinations >= Math.pow(2, 40)) {
-        $("#generatedPassword").removeClass("text-success");
-        $("#generatedPassword").addClass("text-warning");
-        $("#generatedPassword").removeClass("text-danger");
+        $("#generatedPassword").removeClass("alert-success");
+        $("#generatedPassword").addClass("alert-warning");
+        $("#generatedPassword").removeClass("alert-danger");
         $("#estimatedYears").html(`
           <p>Good. On average, this password will be cracked after…</p>
           <ul>
@@ -80,9 +105,9 @@ $(() => {
           </ul>
         `);
       } else {
-        $("#generatedPassword").removeClass("text-success");
-        $("#generatedPassword").removeClass("text-warning");
-        $("#generatedPassword").addClass("text-danger");
+        $("#generatedPassword").removeClass("alert-success");
+        $("#generatedPassword").removeClass("alert-warning");
+        $("#generatedPassword").addClass("alert-danger");
         $("#estimatedYears").html(`
           <p>Poor. On average, this password will be cracked after…</p>
           <ul>
