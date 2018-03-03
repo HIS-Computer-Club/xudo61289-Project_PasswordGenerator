@@ -27,7 +27,18 @@ $(() => {
       let millionAttempts = displayTime(combinations / 2e+6);
       let thousandAttempts = displayTime(combinations / 2000);
       $("#generatedPassword").html(password.join(" "));
-      if (combinations >= Math.pow(2, 60)) {
+      if (combinations >= Math.pow(2, 100)) {
+        $("#generatedPassword").addClass("text-success");
+        $("#generatedPassword").removeClass("text-warning");
+        $("#generatedPassword").removeClass("text-danger");
+        $("#estimatedYears").html(`Overkill.
+          <ul>
+            <li>Assuming a billion attempts per second and knowledge of the generating method, your password will take ${billionAttempts} to crack.</li>
+            <li>Assuming a million attempts per second and knowledge of the generating method, your password will take ${millionAttempts} to crack.</li>
+            <li>Assuming a thousand attempts per second and knowledge of the generating method, your password will take ${thousandAttempts} to crack.</li>
+          </ul>
+          `);
+      } else if (combinations >= Math.pow(2, 60)) {
         $("#generatedPassword").addClass("text-success");
         $("#generatedPassword").removeClass("text-warning");
         $("#generatedPassword").removeClass("text-danger");
