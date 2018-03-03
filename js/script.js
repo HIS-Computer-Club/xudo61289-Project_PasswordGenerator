@@ -20,14 +20,14 @@ $(() => {
       $("#invalid").hide();
       let password = [];
       for (let i = 0; i < wordNumber; i++) {
-        password.push(words[Math.floor(words.length * Math.random())]);
+        password.push(`<span class="${i === wordNumber - 1 ? "" : "words"}">${words[Math.floor(words.length * Math.random())]}</span>`);
       }
       let combinations = Math.pow(words.length, wordNumber);
       let trillionAttempts = displayTime(combinations / 2e+12);
       let billionAttempts = displayTime(combinations / 2e+9);
       let millionAttempts = displayTime(combinations / 2e+6);
       let thousandAttempts = displayTime(combinations / 2000);
-      $("#generatedPassword").html(password.join(" "));
+      $("#generatedPassword").html(password.join(""));
       if (combinations >= Math.pow(2, 100)) {
         $("#generatedPassword").addClass("text-success");
         $("#generatedPassword").removeClass("text-warning");

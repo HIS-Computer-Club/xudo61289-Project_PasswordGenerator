@@ -2,6 +2,10 @@ body {
   margin-top: 80px;
 }
 
+.words {
+  padding-right: 0.25em;
+}
+
 #wordNumber {
   margin-right: 1px;
 }
