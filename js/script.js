@@ -13,11 +13,13 @@ $(() => {
     if (isNaN(wordNumber) || wordNumber < 1) {
       $("#wordNumber").addClass("is-invalid");
       $("#invalid").show();
-      $("#generatedPassword").html("");
-      $("#estimatedYears").html("");
+      $("#generatedPassword").hide();
+      $("#estimatedYears").hide();
     } else {
       $("#wordNumber").removeClass("is-invalid");
       $("#invalid").hide();
+      $("#generatedPassword").show();
+      $("#estimatedYears").show();
       let password = [];
       for (let i = 0; i < wordNumber; i++) {
         password.push(`<span class="${i === wordNumber - 1 ? "" : "words"}">${words[Math.floor(words.length * Math.random())]}</span>`);

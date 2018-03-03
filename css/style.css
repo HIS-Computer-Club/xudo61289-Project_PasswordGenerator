@@ -15,5 +15,6 @@ body {
 }
 
 #generatedPassword {
-  word-wrap: break-word;
+  display: none;
+  overflow-y: scroll;
 }
