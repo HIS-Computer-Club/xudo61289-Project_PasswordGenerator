@@ -44,6 +44,7 @@ $(() => {
 
   $("#generate").click(() => {
     let wordNumber = parseInt($("#wordNumber").val());
+    let randomSortedDictionary = dictionary.sort((a, b) => Math.random() < 0.5);
 
     if (isNaN(wordNumber) || wordNumber < 1) {
       $("#wordNumber").addClass("is-invalid");
@@ -57,7 +58,7 @@ $(() => {
       $("#estimatedYears").show();
       let password = [];
       for (let i = 0; i < wordNumber; i++) {
-        password.push(`<span class="${i === wordNumber - 1 ? "" : "words"}">${dictionary[Math.floor(dictionary.length * Math.random())]}</span>`);
+        password.push(`<span class="${i === wordNumber - 1 ? "" : "words"}">${randomSortedDictionary[Math.floor(randomSortedDictionary.length * Math.random())]}</span>`);
       }
       let combinations = Math.pow(dictionary.length, wordNumber);
       let trillionAttempts = displayTime(combinations / 2e+12);
