@@ -123,8 +123,10 @@ $(() => {
     } else if (Math.round(seconds / 31536e+12) < 1000) {
       let s = Math.round(seconds / 31536e+12);
       return `${s} billion years`;
+    } else if (isFinite(seconds)) {
+      return `${`${Math.round(seconds / 31536000).toPrecision(2).replace("e+", "&times;10<sup>")}</sup>`} years`;
     } else {
-      return `way too long`;
+      return `Way too long`
     }
   }
 });
