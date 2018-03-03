@@ -11,9 +11,9 @@ $(() => {
       }
     } else {
       if ($("#useNames").prop("checked")) {
-        dictionary = words.slice(0, Math.round(words.length * 0.75)).concat(names);
+        dictionary = words.slice(0, Math.round(words.length * 0.5)).concat(names);
       } else {
-        dictionary = words.slice(0, Math.round(words.length * 0.75));
+        dictionary = words.slice(0, Math.round(words.length * 0.5));
       }
     }
     $("#dictionaryWords").html(`Containing ${dictionary.length} words, t`);
@@ -28,9 +28,9 @@ $(() => {
       }
     } else {
       if (this.checked) {
-        dictionary = words.slice(0, Math.round(words.length * 0.75)).concat(names);
+        dictionary = words.slice(0, Math.round(words.length * 0.5)).concat(names);
       } else {
-        dictionary = words.slice(0, Math.round(words.length * 0.75));
+        dictionary = words.slice(0, Math.round(words.length * 0.5));
       }
     }
     $("#dictionaryWords").html(`Containing ${dictionary.length} words, t`);
@@ -65,7 +65,7 @@ $(() => {
       let millionAttempts = displayTime(combinations / 2e+6);
       let thousandAttempts = displayTime(combinations / 2000);
       $("#generatedPassword").html(password.join(""));
-      if (combinations >= Math.pow(2, 100)) {
+      if (combinations >= Math.pow(2, 128)) {
         $("#generatedPassword").addClass("alert-success");
         $("#generatedPassword").removeClass("alert-warning");
         $("#generatedPassword").removeClass("alert-danger");
@@ -78,7 +78,7 @@ $(() => {
             <li>${thousandAttempts} with a thousand attempts per second.</li>
           </ul>
           `);
-      } else if (combinations >= Math.pow(2, 60)) {
+      } else if (combinations >= Math.pow(2, 64)) {
         $("#generatedPassword").addClass("alert-success");
         $("#generatedPassword").removeClass("alert-warning");
         $("#generatedPassword").removeClass("alert-danger");
@@ -91,7 +91,7 @@ $(() => {
             <li>${thousandAttempts} with a thousand attempts per second.</li>
           </ul>
         `);
-      } else if (combinations >= Math.pow(2, 40)) {
+      } else if (combinations >= Math.pow(2, 48)) {
         $("#generatedPassword").removeClass("alert-success");
         $("#generatedPassword").addClass("alert-warning");
         $("#generatedPassword").removeClass("alert-danger");
