@@ -44,50 +44,54 @@ $(() => {
         $("#generatedPassword").addClass("text-success");
         $("#generatedPassword").removeClass("text-warning");
         $("#generatedPassword").removeClass("text-danger");
-        $("#estimatedYears").html(`Overkill.
+        $("#estimatedYears").html(`
+          <p>Overkill. On average, this password will take…</p>
           <ul>
-            <li>Assuming a trillion attempts per second and knowledge of the generating method, your password will take ${trillionAttempts} to crack.</li>
-            <li>Assuming a billion attempts per second and knowledge of the generating method, your password will take ${billionAttempts} to crack.</li>
-            <li>Assuming a million attempts per second and knowledge of the generating method, your password will take ${millionAttempts} to crack.</li>
-            <li>Assuming a thousand attempts per second and knowledge of the generating method, your password will take ${thousandAttempts} to crack.</li>
+            <li>${trillionAttempts} to crack with a trillion attempts per second.</li>
+            <li>${billionAttempts} to crack with a billion attempts per second.</li>
+            <li>${millionAttempts} to crack with a million attempts per second.</li>
+            <li>${thousandAttempts} to crack with a thousand attempts per second.</li>
           </ul>
           `);
       } else if (combinations >= Math.pow(2, 60)) {
         $("#generatedPassword").addClass("text-success");
         $("#generatedPassword").removeClass("text-warning");
         $("#generatedPassword").removeClass("text-danger");
-        $("#estimatedYears").html(`Secure.
+        $("#estimatedYears").html(`
+          <p>Secure. On average, this password will take…</p>
           <ul>
-            <li>Assuming a trillion attempts per second and knowledge of the generating method, your password will take ${trillionAttempts} to crack.</li>
-            <li>Assuming a billion attempts per second and knowledge of the generating method, your password will take ${billionAttempts} to crack.</li>
-            <li>Assuming a million attempts per second and knowledge of the generating method, your password will take ${millionAttempts} to crack.</li>
-            <li>Assuming a thousand attempts per second and knowledge of the generating method, your password will take ${thousandAttempts} to crack.</li>
+            <li>${trillionAttempts} to crack with a trillion attempts per second.</li>
+            <li>${billionAttempts} to crack with a billion attempts per second.</li>
+            <li>${millionAttempts} to crack with a million attempts per second.</li>
+            <li>${thousandAttempts} to crack with a thousand attempts per second.</li>
           </ul>
-          `);
+        `);
       } else if (combinations >= Math.pow(2, 40)) {
         $("#generatedPassword").removeClass("text-success");
         $("#generatedPassword").addClass("text-warning");
         $("#generatedPassword").removeClass("text-danger");
-        $("#estimatedYears").html(`Good.
+        $("#estimatedYears").html(`
+          <p>Good. On average, this password will take…</p>
           <ul>
-            <li>Assuming a trillion attempts per second and knowledge of the generating method, your password will take ${trillionAttempts} to crack.</li>
-            <li>Assuming a billion attempts per second and knowledge of the generating method, your password will take ${billionAttempts} to crack.</li>
-            <li>Assuming a million attempts per second and knowledge of the generating method, your password will take ${millionAttempts} to crack.</li>
-            <li>Assuming a thousand attempts per second and knowledge of the generating method, your password will take ${thousandAttempts} to crack.</li>
+            <li>${trillionAttempts} to crack with a trillion attempts per second.</li>
+            <li>${billionAttempts} to crack with a billion attempts per second.</li>
+            <li>${millionAttempts} to crack with a million attempts per second.</li>
+            <li>${thousandAttempts} to crack with a thousand attempts per second.</li>
           </ul>
-          `);
+        `);
       } else {
         $("#generatedPassword").removeClass("text-success");
         $("#generatedPassword").removeClass("text-warning");
         $("#generatedPassword").addClass("text-danger");
-        $("#estimatedYears").html(`Inadequate.
+        $("#estimatedYears").html(`
+          <p>Poor. On average, this password will take…</p>
           <ul>
-            <li>Assuming a trillion attempts per second and knowledge of the generating method, your password will take ${trillionAttempts} to crack.</li>
-            <li>Assuming a billion attempts per second and knowledge of the generating method, your password will take ${billionAttempts} to crack.</li>
-            <li>Assuming a million attempts per second and knowledge of the generating method, your password will take ${millionAttempts} to crack.</li>
-            <li>Assuming a thousand attempts per second and knowledge of the generating method, your password will take ${thousandAttempts} to crack.</li>
+            <li>${trillionAttempts} to crack with a trillion attempts per second.</li>
+            <li>${billionAttempts} to crack with a billion attempts per second.</li>
+            <li>${millionAttempts} to crack with a million attempts per second.</li>
+            <li>${thousandAttempts} to crack with a thousand attempts per second.</li>
           </ul>
-          `);
+        `);
       }
     }
   });
