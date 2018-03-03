@@ -1,5 +1,15 @@
 $(() => {
-  $("#dictionaryWords").html(` and contains ${words.length} words`);
+  let dictionary = words.concat(names);
+  $("#dictionaryWords").html(`Containing ${dictionary.length} words, t`);
+
+  $("#useNames").change(function() {
+    if (this.checked) {
+      dictionary = words.concat(names);
+    } else {
+      dictionary = words;
+    }
+    $("#dictionaryWords").html(`Containing ${dictionary.length} words, t`);
+  });
 
   $("#wordNumber").keyup((e) => {
     if (e.keyCode === 13) {
@@ -22,9 +32,9 @@ $(() => {
       $("#estimatedYears").show();
       let password = [];
       for (let i = 0; i < wordNumber; i++) {
-        password.push(`<span class="${i === wordNumber - 1 ? "" : "words"}">${words[Math.floor(words.length * Math.random())]}</span>`);
+        password.push(`<span class="${i === wordNumber - 1 ? "" : "words"}">${dictionary[Math.floor(dictionary.length * Math.random())]}</span>`);
       }
-      let combinations = Math.pow(words.length, wordNumber);
+      let combinations = Math.pow(dictionary.length, wordNumber);
       let trillionAttempts = displayTime(combinations / 2e+12);
       let billionAttempts = displayTime(combinations / 2e+9);
       let millionAttempts = displayTime(combinations / 2e+6);

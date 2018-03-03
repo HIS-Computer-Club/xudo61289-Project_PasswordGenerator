@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="bootstrap/css/bootstrap.css" />
   <link rel="stylesheet" href="css/style.css" />
   <script src="js/words.js" defer></script>
+  <script src="js/names.js" defer></script>
   <script src="js/jquery.js" defer></script>
   <script src="js/script.js" defer></script>
 </head>
@@ -23,7 +24,7 @@
     </nav>
     <div class="row">
       <div class="col-sm-6">
-        <p>The number of words determine how many random numbers are concatenated together to form the password. The dictionary used is a slightly modified version of the dictionary created by Github user <a href="https://github.com/first20hours/">@first20hours</a><span id="dictionaryWords"></span>.</p>
+        <p>The number of words determine how many random numbers are concatenated together to form the password. <span id="dictionaryWords">T</span>he dictionary used is modified from <a href="https://en.wiktionary.org/wiki/Wiktionary:Frequency_lists">one of Wiktionary's frequency list</a> and the UNIX standard dictionary.</p>
         <div class="input-group">
           <div class="input-group-prepend">
             <span class="input-group-text" id="wordNumberLabel">Number of words</span>
@@ -32,6 +33,11 @@
           <div class="input-group-append">
             <button class="btn btn-success" id="generate" type="button">Generate!</button>
           </div>
+        </div>
+        <br />
+        <div class="custom-control custom-checkbox">
+          <input type="checkbox" class="custom-control-input" id="useNames" checked />
+          <label class="custom-control-label" for="useNames">Include proper names in dictionary</label>
         </div>
         <div class="text-danger" id="invalid">
           The number of words must be greater than or equal to 1.
