@@ -51,8 +51,7 @@ $(() => {
 
   $("#generate").click(() => {
     let wordNumber = parseInt($("#wordNumber").val());
-    let randomSortedDictionary = dictionary.map((a) => a).sort((a, b) => randomInt(0, 1));
-
+    let randomSortedDictionary = shuffleArray(dictionary.map((a) => a));
     if (isNaN(wordNumber) || wordNumber < 1) {
       $("#wordNumber").addClass("is-invalid");
       $("#invalid").show();
@@ -176,5 +175,13 @@ $(() => {
     } else {
       return Math.floor(Math.random() * (max - min + 1)) + min;
     }
+  }
+
+  function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      let random = Math.floor(randomInt(0, i));
+      [array[i], array[random]] = [array[random], array[i]];
+    }
+    return array;
   }
 });
