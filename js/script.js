@@ -51,7 +51,7 @@ $(() => {
 
   $("#generate").click(() => {
     let wordNumber = parseInt($("#wordNumber").val());
-    let randomSortedDictionary = dictionary.sort((a, b) => randomInt(0, 1));
+    let randomSortedDictionary = dictionary.map((a) => a).sort((a, b) => randomInt(0, 1));
 
     if (isNaN(wordNumber) || wordNumber < 1) {
       $("#wordNumber").addClass("is-invalid");
