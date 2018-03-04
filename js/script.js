@@ -179,7 +179,7 @@ $(() => {
 
   function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
-      let random = Math.floor(randomInt(0, i));
+      let random = randomInt(0, i);
       [array[i], array[random]] = [array[random], array[i]];
     }
     return array;
