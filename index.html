@@ -25,7 +25,7 @@
     </nav>
     <div class="row">
       <div class="col-sm-6">
-        <p><span id="dictionaryWords">T</span>he dictionary used is modified from <a href="https://en.wiktionary.org/wiki/Wiktionary:Frequency_lists">one of Wiktionary's frequency list</a> and the UNIX standard dictionary, with offensive words removed by comparing to <a href="https://github.com/LDNOOBW/List-of-Dirty-Naughty-Obscene-and-Otherwise-Bad-Words" title="Offensive words stored in a repository on Github">this list</a>.</p>
+        <p><span id="dictionaryWords">T</span>he dictionary used is based upon comparing <a href="https://en.wiktionary.org/wiki/Wiktionary:Frequency_lists">one of Wiktionary's frequency list</a> and the UNIX standard dictionary.</p>
         <p>Input the number of words below to determine how many random words are concatenated together to form the password.</p>
         <div class="input-group">
           <div class="input-group-prepend">
@@ -44,6 +44,10 @@
         <div class="custom-control custom-checkbox">
           <input type="checkbox" class="custom-control-input" id="useNames" checked />
           <label class="custom-control-label" for="useNames">Include proper names in dictionary</label>
+        </div>
+        <div class="custom-control custom-checkbox">
+          <input type="checkbox" class="custom-control-input" id="useCrypto" disabled />
+          <label class="custom-control-label" for="useCrypto">Use cryptographically secure random <span id="cryptoStatus"></span></label>
         </div>
         <div class="text-danger" id="invalid">
           The number of words must be greater than or equal to 1.

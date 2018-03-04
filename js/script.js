@@ -2,6 +2,13 @@ $(() => {
   let dictionary = words.concat(names);
   $("#dictionaryWords").html(`Containing ${dictionary.length} words, t`);
 
+  if (!window.crypto && !window.msCrypto) {
+    $("#cryptoStatus").html("(not available for your browser)");
+  } else {
+    $("#useCrypto").attr("disabled", false);
+    $("#useCrypto").prop("checked", true);
+  }
+
   $("#useUncommon").change(function() {
     if (this.checked) {
       if ($("#useNames").prop("checked")) {
@@ -44,7 +51,7 @@ $(() => {
 
   $("#generate").click(() => {
     let wordNumber = parseInt($("#wordNumber").val());
-    let randomSortedDictionary = dictionary.sort((a, b) => Math.random() < 0.5);
+    let randomSortedDictionary = dictionary.sort((a, b) => randomInt(0, 1));
 
     if (isNaN(wordNumber) || wordNumber < 1) {
       $("#wordNumber").addClass("is-invalid");
@@ -58,7 +65,7 @@ $(() => {
       $("#estimatedYears").show();
       let password = [];
       for (let i = 0; i < wordNumber; i++) {
-        password.push(`<span class="${i === wordNumber - 1 ? "" : "words"}">${randomSortedDictionary[Math.floor(randomSortedDictionary.length * Math.random())]}</span>`);
+        password.push(`<span class="${i === wordNumber - 1 ? "" : "words"}">${randomSortedDictionary[randomInt(0, randomSortedDictionary.length - 1)]}</span>`);
       }
       let combinations = Math.pow(dictionary.length, wordNumber);
       let trillionAttempts = displayTime(combinations / 2e+12);
@@ -66,7 +73,7 @@ $(() => {
       let millionAttempts = displayTime(combinations / 2e+6);
       let thousandAttempts = displayTime(combinations / 2000);
       $("#generatedPassword").html(password.join(""));
-      if (combinations >= Math.pow(2, 128)) {
+      if (combinations > Math.pow(2, 100)) {
         $("#generatedPassword").addClass("alert-success");
         $("#generatedPassword").removeClass("alert-warning");
         $("#generatedPassword").removeClass("alert-danger");
@@ -79,7 +86,7 @@ $(() => {
             <li>${thousandAttempts} with a thousand attempts per second.</li>
           </ul>
           `);
-      } else if (combinations >= Math.pow(2, 64)) {
+      } else if (combinations > Math.pow(2, 65)) {
         $("#generatedPassword").addClass("alert-success");
         $("#generatedPassword").removeClass("alert-warning");
         $("#generatedPassword").removeClass("alert-danger");
@@ -92,7 +99,7 @@ $(() => {
             <li>${thousandAttempts} with a thousand attempts per second.</li>
           </ul>
         `);
-      } else if (combinations >= Math.pow(2, 48)) {
+      } else if (combinations >= Math.pow(2, 40)) {
         $("#generatedPassword").removeClass("alert-success");
         $("#generatedPassword").addClass("alert-warning");
         $("#generatedPassword").removeClass("alert-danger");
@@ -152,7 +159,22 @@ $(() => {
     } else if (isFinite(seconds)) {
       return `${`${Math.round(seconds / 31536000).toPrecision(2).replace("e+", "&times;10<sup>")}</sup>`} years`;
     } else {
-      return `Way too long`
+      return `way too long`
+    }
+  }
+
+  function randomInt(min, max) {
+    if ($("#useCrypto").prop("checked")) {
+      let browserCrypto = window.crypto || window.msCrypto;
+      let array = new Uint32Array(1);
+      browserCrypto.getRandomValues(array);
+      if (array[0] >= Math.floor(Math.pow(2, 32) / (max - min + 1)) * (max - min + 1)) {
+        return randomInt(min, max);
+      } else {
+        return min + array[0] % (max - min + 1);
+      }
+    } else {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
     }
   }
 });
